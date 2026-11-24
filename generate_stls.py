@@ -37,6 +37,54 @@ MODELS = [
         "shape": "circular",
         "desc": "Small Circular (Round Donut Coils)",
         "cam": "0,0,20,55,0,35,140"
+    },
+    {
+        "name": "cable_mandrel_oblong_small",
+        "scad": "cable_mandrel_jig.scad",
+        "preset": "S",
+        "shape": "oblong",
+        "desc": "External Oblong Mandrel - Small",
+        "cam": "0,0,18,55,0,35,165"
+    },
+    {
+        "name": "cable_mandrel_oblong_medium",
+        "scad": "cable_mandrel_jig.scad",
+        "preset": "M",
+        "shape": "oblong",
+        "desc": "External Oblong Mandrel - Medium",
+        "cam": "0,0,24,55,0,35,220"
+    },
+    {
+        "name": "cable_mandrel_oblong_large",
+        "scad": "cable_mandrel_jig.scad",
+        "preset": "L",
+        "shape": "oblong",
+        "desc": "External Oblong Mandrel - Large",
+        "cam": "0,0,28,55,0,35,280"
+    },
+    {
+        "name": "cable_mandrel_tube_small",
+        "scad": "cable_mandrel_jig.scad",
+        "preset": "S",
+        "shape": "circular",
+        "desc": "External Flanged Tube - Small",
+        "cam": "0,0,18,55,0,35,160"
+    },
+    {
+        "name": "cable_mandrel_tube_medium",
+        "scad": "cable_mandrel_jig.scad",
+        "preset": "M",
+        "shape": "circular",
+        "desc": "External Flanged Tube - Medium",
+        "cam": "0,0,24,55,0,35,215"
+    },
+    {
+        "name": "cable_mandrel_tube_large",
+        "scad": "cable_mandrel_jig.scad",
+        "preset": "L",
+        "shape": "circular",
+        "desc": "External Flanged Tube - Large",
+        "cam": "0,0,28,55,0,35,275"
     }
 ]
 
@@ -50,6 +98,7 @@ def main():
     print("=" * 65)
 
     for item in MODELS:
+        scad_path = os.path.join(BASE_DIR, item.get("scad", "cable_jig.scad"))
         stl_path = os.path.join(BASE_DIR, f"{item['name']}.stl")
         png_path = os.path.join(BASE_DIR, f"{item['name']}.png")
 
@@ -61,7 +110,7 @@ def main():
             "-o", stl_path,
             "-D", f'preset="{item["preset"]}"',
             "-D", f'shape_type="{item["shape"]}"',
-            SCAD_FILE
+            scad_path
         ]
         res_stl = subprocess.run(cmd_stl, capture_output=True, text=True)
         if res_stl.returncode != 0:
@@ -79,7 +128,7 @@ def main():
             f"--camera={item['cam']}",
             "--imgsize=1024,768",
             "--colorscheme=Tomorrow",
-            SCAD_FILE
+            scad_path
         ]
         res_png = subprocess.run(cmd_png, capture_output=True, text=True)
         if res_png.returncode != 0:

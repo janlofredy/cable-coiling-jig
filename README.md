@@ -55,6 +55,8 @@ Ideal for storing uniform cables inside random boxes, cookie tins, drawer organi
 
 ## How to Use
 
+![How to Use Cable Jig](cable_jig_usage.gif)
+
 1. **Pre-position the Strap**: Drop a 1/2" (12–15 mm) Velcro One-Wrap cable tie through the open top slots into the floor groove. Leave both ends hanging outside the sides.
 2. **Coil Cable**: Wind your cable loosely around 2–3 fingers or in your hand into a rough circle.
 3. **Press into Jig**: Push the coil down through the flared mouth into the oblong sleeve. The funnel sides squeeze the circular coil into an oblong shape until it seats against the bottom stopper.

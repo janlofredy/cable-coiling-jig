@@ -58,12 +58,25 @@ This repository includes **two complementary designs**:
 
 | Variant & Size | Mandrel Dimensions | Target Cables | Ready-to-Print File |
 | :--- | :--- | :--- | :--- |
-| **Oblong Mandrel (S)** | 64 × 18 × 35 mm | USB-C, Lightning, earbuds | [`cable_mandrel_oblong_small.stl`](cable_mandrel_oblong_small.stl) |
-| **Oblong Mandrel (M)** | 95 × 24 × 48 mm | Laptop chargers, HDMI, audio leads | [`cable_mandrel_oblong_medium.stl`](cable_mandrel_oblong_medium.stl) |
-| **Oblong Mandrel (L)** | 130 × 32 × 58 mm | Heavy appliance & extension cords | [`cable_mandrel_oblong_large.stl`](cable_mandrel_oblong_large.stl) |
+| **Oblong Mandrel (S)** | 64 × 18 × 34 mm | USB-C, Lightning, earbuds | [`cable_mandrel_oblong_small.stl`](cable_mandrel_oblong_small.stl) |
+| **Oblong Mandrel (M)** | 95 × 24 × 49 mm | Laptop chargers, HDMI, audio leads | [`cable_mandrel_oblong_medium.stl`](cable_mandrel_oblong_medium.stl) |
+| **Oblong Mandrel (L)** | 130 × 32 × 59 mm | Heavy appliance & extension cords | [`cable_mandrel_oblong_large.stl`](cable_mandrel_oblong_large.stl) |
 | **Flanged Tube (S)** | Ø 50 × 35 mm | Round coils (smushes to ~78 mm flat) | [`cable_mandrel_tube_small.stl`](cable_mandrel_tube_small.stl) |
 | **Flanged Tube (M)** | Ø 72 × 48 mm | Round coils (smushes to ~113 mm flat) | [`cable_mandrel_tube_medium.stl`](cable_mandrel_tube_medium.stl) |
 | **Flanged Tube (L)** | Ø 98 × 58 mm | Round coils (smushes to ~154 mm flat) | [`cable_mandrel_tube_large.stl`](cable_mandrel_tube_large.stl) |
+
+---
+
+## 2-in-1 Mating Capsule Mode (Sleeve + Oblong Mandrel)
+
+Each **Oblong Mandrel (`S`, `M`, `L`)** includes a raised registration pocket (`0.35 mm` slip-fit tolerance per side, `0.8 mm` lead-in chamfer) with coaxially aligned `16 mm` strap slots and a `1.0 mm` floor strap groove so the matching **Internal Compression Sleeve** nests inverted right on top of it:
+
+- **During use**: Wind on the mandrel posts, press the inverted sleeve down to compress the outer loops cleanly, and cinch the Velcro strap through the aligned center slots.
+- **For storage**: Nest the empty halves together into one compact capsule in your drawer.
+
+![2-in-1 Mating Capsule Preview](cable_combo_mated.png)
+
+![How to Use 2-in-1 Mating Capsule](cable_combo_usage.gif)
 
 ---
 

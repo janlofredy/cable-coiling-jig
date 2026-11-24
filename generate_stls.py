@@ -44,7 +44,7 @@ MODELS = [
         "preset": "S",
         "shape": "oblong",
         "desc": "External Oblong Mandrel - Small",
-        "cam": "0,0,18,55,0,35,165"
+        "cam": "0,0,18,55,0,35,185"
     },
     {
         "name": "cable_mandrel_oblong_medium",
@@ -52,7 +52,7 @@ MODELS = [
         "preset": "M",
         "shape": "oblong",
         "desc": "External Oblong Mandrel - Medium",
-        "cam": "0,0,24,55,0,35,220"
+        "cam": "0,0,24,55,0,35,245"
     },
     {
         "name": "cable_mandrel_oblong_large",
@@ -60,7 +60,7 @@ MODELS = [
         "preset": "L",
         "shape": "oblong",
         "desc": "External Oblong Mandrel - Large",
-        "cam": "0,0,28,55,0,35,280"
+        "cam": "0,0,28,55,0,35,310"
     },
     {
         "name": "cable_mandrel_tube_small",

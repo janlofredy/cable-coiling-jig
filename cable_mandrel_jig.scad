@@ -83,10 +83,17 @@ function get_tube_diameter(p) =
     (p == "M") ? 72 :
     (p == "L") ? 98 : custom_length;
 
+// Tube heights give 2.0 mm vertical clearance inside inverted circular cable_jig.scad
 function get_tube_height(p) =
-    (p == "S") ? 35 :
-    (p == "M") ? 48 :
-    (p == "L") ? 58 : custom_height;
+    (p == "S") ? 34 :
+    (p == "M") ? 49 :
+    (p == "L") ? 59 : custom_height;
+
+// Matching outer flared rim diameter from circular cable_jig.scad
+function get_circular_sleeve_rim_dia(p) =
+    (p == "S") ? 82.4 :
+    (p == "M") ? 108.4 :
+    (p == "L") ? 138.4 : (custom_length + 32.4);
 
 // -----------------------------------------------------------------------------
 // 2D PROFILE GENERATOR
@@ -224,22 +231,40 @@ module oblong_mandrel_jig(length, width, height, label, sleeve_rim_l, sleeve_rim
 }
 
 // -----------------------------------------------------------------------------
-// 3D CIRCULAR FLANGED HOLLOW TUBE
+// 3D CIRCULAR FLANGED HOLLOW TUBE (WITH OPTIONAL MATING REGISTRATION POCKET)
 // -----------------------------------------------------------------------------
-module circular_tube_jig(diameter, height, label) {
-    flange_d = diameter + 2 * flange_overhang;
+module circular_tube_jig(diameter, height, label, sleeve_rim_d) {
+    pocket_d = sleeve_rim_d + 2 * fit_clearance;
+    flange_d = mating_rim ? (pocket_d + 2 * rim_wall) : (diameter + 2 * flange_overhang);
+    base_total_h = mating_rim ? (flange_thickness + rim_height) : flange_thickness;
+
     top_outer_d = max(16, diameter - 2 * taper_inset);
     base_inner_d = max(12, diameter - 2 * wall_thickness);
     top_inner_d = max(10, top_outer_d - 2 * wall_thickness);
     grip_hole_d = max(18, base_inner_d - 8);
     bevel_h = 1.2;
+    lead_chamfer = 0.8;
 
     difference() {
         union() {
-            // Bottom stopper flange
-            chamfered_stadium_plate(flange_d, flange_d, flange_thickness, chamfer = 1.0);
+            // 1. Base plate + optional raised mating registration lip
+            if (mating_rim) {
+                difference() {
+                    chamfered_stadium_plate(flange_d, flange_d, base_total_h, chamfer = 1.0);
+                    // Inner circular registration pocket
+                    translate([0, 0, flange_thickness]) {
+                        cylinder(d = pocket_d, h = rim_height + 0.1);
+                    }
+                    // 45-degree inner lead-in chamfer at top of lip
+                    translate([0, 0, base_total_h - lead_chamfer]) {
+                        cylinder(d1 = pocket_d, d2 = pocket_d + 2 * lead_chamfer, h = lead_chamfer + 0.05);
+                    }
+                }
+            } else {
+                chamfered_stadium_plate(flange_d, flange_d, flange_thickness, chamfer = 1.0);
+            }
 
-            // Tapered outer cylinder with top bevel
+            // 2. Tapered outer cylinder with top bevel
             translate([0, 0, flange_thickness - 0.01]) {
                 cylinder(d1 = diameter, d2 = top_outer_d, h = height - bevel_h);
                 translate([0, 0, height - bevel_h - 0.01]) {
@@ -258,21 +283,28 @@ module circular_tube_jig(diameter, height, label) {
             cylinder(d = grip_hole_d, h = flange_thickness + 2);
         }
 
-        // Two opposite vertical strap-relief slots on ±Y walls
+        // Two opposite vertical strap-relief slots on ±Y walls (and across raised lip)
         translate([-strap_slot_width / 2, -(flange_d + 10) / 2, flange_thickness]) {
             cube([strap_slot_width, flange_d + 10, height + 5]);
         }
 
-        // Cable-end tuck notch on outer +X edge of flange
-        translate([flange_d / 2 - 4.5, -start_notch_width / 2, -1]) {
-            cube([6, start_notch_width, flange_thickness + 2]);
+        // Recessed strap bed groove across flange floor
+        if (mating_rim) {
+            translate([-strap_slot_width / 2, -(flange_d + 4) / 2, flange_thickness - strap_recess_depth]) {
+                cube([strap_slot_width, flange_d + 4, strap_recess_depth + 0.05]);
+            }
         }
 
-        // Debossed size label on top surface of bottom flange lip
+        // Cable-end tuck notch on outer +X edge of flange
+        translate([flange_d / 2 - 5.5, -start_notch_width / 2, -1]) {
+            cube([7, start_notch_width, base_total_h + 2]);
+        }
+
+        // Debossed size label on flat floor ring between tube and raised lip
         if (label != "" && label != "CUSTOM") {
-            translate([-(diameter / 2 + flange_overhang / 2 - 0.5), 0, flange_thickness - 0.6]) {
+            translate([-(diameter / 2 + 4.5), 0, flange_thickness - 0.5]) {
                 rotate([0, 0, 90]) {
-                    linear_extrude(height = 0.7) {
+                    linear_extrude(height = 0.6) {
                         text(str("TUBE ", label), size = 3.5, font = "Liberation Sans:style=Bold", halign = "center", valign = "center");
                     }
                 }
@@ -285,7 +317,12 @@ module circular_tube_jig(diameter, height, label) {
 // RENDER ACTIVE SELECTION
 // -----------------------------------------------------------------------------
 if (shape_type == "circular") {
-    circular_tube_jig(get_tube_diameter(preset), get_tube_height(preset), preset);
+    circular_tube_jig(
+        get_tube_diameter(preset),
+        get_tube_height(preset),
+        preset,
+        get_circular_sleeve_rim_dia(preset)
+    );
 } else {
     oblong_mandrel_jig(
         get_oblong_length(preset),

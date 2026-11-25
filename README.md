@@ -2,9 +2,31 @@
 
 Parametric, 3D-printable handheld jigs designed to turn loose cables into uniform, space-saving bundles secured with standard 1/2" (12–15 mm) hook-and-loop (Velcro One-Wrap) ties — ideal for neat storage in boxes, cookie tins, and containers.
 
-This repository includes **two complementary designs**:
-1. **Design 1 — Internal Compression Sleeve (`cable_jig.scad`)**: Coil loosely in your hand, press down into the sleeve to smush round coils into flat oblong bundles, cinch, and eject from the bottom.
+This repository includes **two complementary designs** that also **mate together as 2-in-1 capsules** (available in both **Oblong** and **Circular**):
+1. **Design 1 — Internal Compression Sleeve (`cable_jig.scad`)**: Coil loosely in your hand, press down into the sleeve to smush round coils into flat oblong bundles (or donut coils), cinch, and eject from the bottom.
 2. **Design 2 — External Wrap-Around Mandrel (`cable_mandrel_jig.scad`)**: Wind cables directly around the **outside** of a tapered mandrel (twin-post oblong or flanged hollow tube) against a bottom stopper flange, cinch, and slide off.
+
+---
+
+## Which Files Do I Print? (Quick-Start Pairings)
+
+For the **2-in-1 Mating Capsule** experience, print **one matching pair** for each cable size you want to organize:
+
+### Oblong 2-in-1 Pairs *(Recommended for boxes & tins — packs cables flat)*
+| Size | Best For | Outer Sleeve (Print 1) | Inner Mandrel (Print 1) |
+| :--- | :--- | :--- | :--- |
+| **Small (S)** | USB-C, Lightning, earbuds | [`cable_jig_small.stl`](cable_jig_small.stl) | [`cable_mandrel_oblong_small.stl`](cable_mandrel_oblong_small.stl) |
+| **Medium (M)** | Laptop chargers, HDMI, audio | [`cable_jig_medium.stl`](cable_jig_medium.stl) | [`cable_mandrel_oblong_medium.stl`](cable_mandrel_oblong_medium.stl) |
+| **Large (L)** | Heavy AC cords, extension leads | [`cable_jig_large.stl`](cable_jig_large.stl) | [`cable_mandrel_oblong_large.stl`](cable_mandrel_oblong_large.stl) |
+
+### Circular 2-in-1 Pairs *(Classic round donut coils)*
+| Size | Best For | Outer Sleeve (Print 1) | Inner Flanged Tube (Print 1) |
+| :--- | :--- | :--- | :--- |
+| **Small (S)** | USB-C, Lightning, earbuds | [`cable_jig_circular_small.stl`](cable_jig_circular_small.stl) | [`cable_mandrel_tube_small.stl`](cable_mandrel_tube_small.stl) |
+| **Medium (M)** | Laptop chargers, HDMI, audio | [`cable_jig_circular_medium.stl`](cable_jig_circular_medium.stl) | [`cable_mandrel_tube_medium.stl`](cable_mandrel_tube_medium.stl) |
+| **Large (L)** | Heavy AC cords, extension leads | [`cable_jig_circular_large.stl`](cable_jig_circular_large.stl) | [`cable_mandrel_tube_large.stl`](cable_mandrel_tube_large.stl) |
+
+> **Tip:** Not sure where to start? Print the **Small Oblong pair** (`cable_jig_small.stl` + `cable_mandrel_oblong_small.stl`) in **PETG** or **PLA+** — it covers 90% of everyday USB/charging cables and snaps together into one compact capsule.
 
 ---
 
@@ -22,18 +44,20 @@ This repository includes **two complementary designs**:
 
 ### 3D Previews & STLs
 
-| Small Oblong (USB-C & Mobile) | Medium Oblong (Laptop & HDMI) |
-| :---: | :---: |
-| ![Small Jig](cable_jig_small.png) | ![Medium Jig](cable_jig_medium.png) |
-| **Large Oblong (Power & Appliance)** | **Small Circular (Round Donut Coils)** |
-| ![Large Jig](cable_jig_large.png) | ![Circular Jig](cable_jig_circular_small.png) |
+| Small Oblong (USB-C & Mobile) | Medium Oblong (Laptop & HDMI) | Large Oblong (Power & Appliance) |
+| :---: | :---: | :---: |
+| ![Small Jig](cable_jig_small.png) | ![Medium Jig](cable_jig_medium.png) | ![Large Jig](cable_jig_large.png) |
+| **Small Circular (Donut)** | **Medium Circular (Donut)** | **Large Circular (Donut)** |
+| ![Small Circular](cable_jig_circular_small.png) | ![Medium Circular](cable_jig_circular_medium.png) | ![Large Circular](cable_jig_circular_large.png) |
 
 | Size | Inner Dimensions (L × W × D) | Target Cables | Ready-to-Print File |
 | :--- | :--- | :--- | :--- |
-| **Small (S)** | 80 × 30 × 30 mm | USB-C, Lightning, Micro-USB, earbuds (1–2 m) | [`cable_jig_small.stl`](cable_jig_small.stl) |
-| **Medium (M)** | 115 × 42 × 45 mm | Laptop power bricks, HDMI cables, audio leads | [`cable_jig_medium.stl`](cable_jig_medium.stl) |
-| **Large (L)** | 155 × 55 × 55 mm | Heavy appliance cords, thick AC extension leads | [`cable_jig_large.stl`](cable_jig_large.stl) |
-| **Small Circular** | 30 mm dia × 30 mm | Round donut coils (traditional circular coiling) | [`cable_jig_circular_small.stl`](cable_jig_circular_small.stl) |
+| **Small Oblong (S)** | 80 × 30 × 30 mm | USB-C, Lightning, Micro-USB, earbuds (1–2 m) | [`cable_jig_small.stl`](cable_jig_small.stl) |
+| **Medium Oblong (M)** | 115 × 42 × 45 mm | Laptop power bricks, HDMI cables, audio leads | [`cable_jig_medium.stl`](cable_jig_medium.stl) |
+| **Large Oblong (L)** | 155 × 55 × 55 mm | Heavy appliance cords, thick AC extension leads | [`cable_jig_large.stl`](cable_jig_large.stl) |
+| **Small Circular (S)** | Ø 66 × 30 mm | Round donut coils (pairs with Ø 50 mm tube) | [`cable_jig_circular_small.stl`](cable_jig_circular_small.stl) |
+| **Medium Circular (M)** | Ø 92 × 45 mm | Round donut coils (pairs with Ø 72 mm tube) | [`cable_jig_circular_medium.stl`](cable_jig_circular_medium.stl) |
+| **Large Circular (L)** | Ø 122 × 55 mm | Round donut coils (pairs with Ø 98 mm tube) | [`cable_jig_circular_large.stl`](cable_jig_circular_large.stl) |
 
 ---
 
@@ -61,20 +85,22 @@ This repository includes **two complementary designs**:
 | **Oblong Mandrel (S)** | 64 × 18 × 34 mm | USB-C, Lightning, earbuds | [`cable_mandrel_oblong_small.stl`](cable_mandrel_oblong_small.stl) |
 | **Oblong Mandrel (M)** | 95 × 24 × 49 mm | Laptop chargers, HDMI, audio leads | [`cable_mandrel_oblong_medium.stl`](cable_mandrel_oblong_medium.stl) |
 | **Oblong Mandrel (L)** | 130 × 32 × 59 mm | Heavy appliance & extension cords | [`cable_mandrel_oblong_large.stl`](cable_mandrel_oblong_large.stl) |
-| **Flanged Tube (S)** | Ø 50 × 35 mm | Round coils (smushes to ~78 mm flat) | [`cable_mandrel_tube_small.stl`](cable_mandrel_tube_small.stl) |
-| **Flanged Tube (M)** | Ø 72 × 48 mm | Round coils (smushes to ~113 mm flat) | [`cable_mandrel_tube_medium.stl`](cable_mandrel_tube_medium.stl) |
-| **Flanged Tube (L)** | Ø 98 × 58 mm | Round coils (smushes to ~154 mm flat) | [`cable_mandrel_tube_large.stl`](cable_mandrel_tube_large.stl) |
+| **Flanged Tube (S)** | Ø 50 × 34 mm | Round coils (pairs with Ø 66 mm circular sleeve) | [`cable_mandrel_tube_small.stl`](cable_mandrel_tube_small.stl) |
+| **Flanged Tube (M)** | Ø 72 × 49 mm | Round coils (pairs with Ø 92 mm circular sleeve) | [`cable_mandrel_tube_medium.stl`](cable_mandrel_tube_medium.stl) |
+| **Flanged Tube (L)** | Ø 98 × 59 mm | Round coils (pairs with Ø 122 mm circular sleeve) | [`cable_mandrel_tube_large.stl`](cable_mandrel_tube_large.stl) |
 
 ---
 
-## 2-in-1 Mating Capsule Mode (Sleeve + Oblong Mandrel)
+## 2-in-1 Mating Capsule Mode (Sleeve + Mandrel / Tube)
 
-Each **Oblong Mandrel (`S`, `M`, `L`)** includes a raised registration pocket (`0.35 mm` slip-fit tolerance per side, `0.8 mm` lead-in chamfer) with coaxially aligned `16 mm` strap slots and a `1.0 mm` floor strap groove so the matching **Internal Compression Sleeve** nests inverted right on top of it:
+Both the **Oblong Mandrels (`S`, `M`, `L`)** and **Circular Flanged Tubes (`S`, `M`, `L`)** include a raised registration pocket (`0.35 mm` slip-fit tolerance per side, `0.8 mm` lead-in chamfer) with coaxially aligned `16 mm` strap slots and a `1.0 mm` floor strap groove so the matching **Internal Compression Sleeve** nests inverted right on top of it:
 
-- **During use**: Wind on the mandrel posts, press the inverted sleeve down to compress the outer loops cleanly, and cinch the Velcro strap through the aligned center slots.
+- **During use**: Wind on the mandrel/tube, press the inverted sleeve down to compress the outer loops cleanly, and cinch the Velcro strap through the aligned center slots.
 - **For storage**: Nest the empty halves together into one compact capsule in your drawer.
 
-![2-in-1 Mating Capsule Preview](cable_combo_mated.png)
+| Oblong 2-in-1 Mating Capsule | Circular 2-in-1 Mating Capsule |
+| :---: | :---: |
+| ![Oblong 2-in-1 Mating Capsule Preview](cable_combo_mated.png) | ![Circular 2-in-1 Mating Capsule Preview](cable_combo_circular_mated.png) |
 
 ![How to Use 2-in-1 Mating Capsule](cable_combo_usage.gif)
 

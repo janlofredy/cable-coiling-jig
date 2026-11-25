@@ -52,9 +52,15 @@ function get_depth(p) =
     (p == "M") ? 45 :
     (p == "L") ? 55 : custom_inner_depth;
 
+// Circular inner cavity diameters (sized to pair as 2-in-1 capsules with flanged tubes)
+function get_circular_dia(p) =
+    (p == "S") ? 66 :
+    (p == "M") ? 92 :
+    (p == "L") ? 122 : custom_inner_width;
+
 // Active nominal dimensions
-nominal_len = (shape_type == "circular") ? get_width(preset) : get_length(preset);
-nominal_wid = get_width(preset);
+nominal_len = (shape_type == "circular") ? get_circular_dia(preset) : get_length(preset);
+nominal_wid = (shape_type == "circular") ? get_circular_dia(preset) : get_width(preset);
 nominal_dep = get_depth(preset);
 
 // -----------------------------------------------------------------------------

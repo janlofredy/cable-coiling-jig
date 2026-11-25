@@ -35,8 +35,22 @@ MODELS = [
         "name": "cable_jig_circular_small",
         "preset": "S",
         "shape": "circular",
-        "desc": "Small Circular (Round Donut Coils)",
-        "cam": "0,0,20,55,0,35,140"
+        "desc": "Small Circular Sleeve (Round Donut Coils)",
+        "cam": "0,0,20,55,0,35,175"
+    },
+    {
+        "name": "cable_jig_circular_medium",
+        "preset": "M",
+        "shape": "circular",
+        "desc": "Medium Circular Sleeve (Round Donut Coils)",
+        "cam": "0,0,25,55,0,35,215"
+    },
+    {
+        "name": "cable_jig_circular_large",
+        "preset": "L",
+        "shape": "circular",
+        "desc": "Large Circular Sleeve (Round Donut Coils)",
+        "cam": "0,0,30,55,0,35,275"
     },
     {
         "name": "cable_mandrel_oblong_small",
@@ -68,7 +82,7 @@ MODELS = [
         "preset": "S",
         "shape": "circular",
         "desc": "External Flanged Tube - Small",
-        "cam": "0,0,18,55,0,35,160"
+        "cam": "0,0,18,55,0,35,180"
     },
     {
         "name": "cable_mandrel_tube_medium",
@@ -76,7 +90,7 @@ MODELS = [
         "preset": "M",
         "shape": "circular",
         "desc": "External Flanged Tube - Medium",
-        "cam": "0,0,24,55,0,35,215"
+        "cam": "0,0,24,55,0,35,235"
     },
     {
         "name": "cable_mandrel_tube_large",
@@ -84,7 +98,7 @@ MODELS = [
         "preset": "L",
         "shape": "circular",
         "desc": "External Flanged Tube - Large",
-        "cam": "0,0,28,55,0,35,275"
+        "cam": "0,0,28,55,0,35,295"
     }
 ]
 
